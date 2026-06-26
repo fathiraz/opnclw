@@ -2,7 +2,12 @@
   "groups": {
     "-1003611345513": {
       "name": "Percakapan Bapak-Bapak",
-      "topics": {},
+      "topics": {
+        "447": {
+          "name": "Kitabisa",
+          "iconColor": 7322096
+        }
+      },
       "accountId": "default",
       "agentId": "default"
     }
