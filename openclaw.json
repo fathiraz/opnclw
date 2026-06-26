@@ -1,0 +1,121 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/root/.alphaclaw/.openclaw/workspace",
+      "model": {
+        "primary": "anthropic/claude-opus-4-8"
+      },
+      "models": {
+        "anthropic/claude-opus-4-8": {}
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "ae3cdee814cebcf6e28cfff31a758241b68e33144757eed7"
+    },
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "trustedProxies": [
+      "127.0.0.1"
+    ],
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:1234"
+      ]
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "full",
+    "exec": {
+      "security": "full",
+      "strictInlineEval": false
+    }
+  },
+  "plugins": {
+    "entries": {
+      "anthropic": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      },
+      "usage-tracker": {
+        "enabled": true,
+        "hooks": {
+          "allowConversationAccess": true
+        }
+      }
+    },
+    "allow": [
+      "telegram",
+      "usage-tracker"
+    ],
+    "load": {
+      "paths": [
+        "/root/node_modules/@chrysb/alphaclaw/lib/plugin/usage-tracker"
+      ]
+    }
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      },
+      "zai:default": {
+        "provider": "zai",
+        "mode": "api_key"
+      }
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-06-26T14:15:53.010Z",
+    "lastRunVersion": "2026.5.28",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.5.28",
+    "lastTouchedAt": "2026-06-26T14:15:55.232Z"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist"
+    }
+  },
+  "commands": {
+    "restart": true
+  },
+  "hooks": {
+    "internal": {
+      "entries": {
+        "bootstrap-extra-files": {
+          "enabled": true,
+          "paths": [
+            "hooks/bootstrap/AGENTS.md",
+            "hooks/bootstrap/TOOLS.md"
+          ]
+        }
+      },
+      "enabled": true
+    }
+  }
+}
