@@ -7,6 +7,10 @@
       },
       "models": {
         "zai/glm-5.1": {}
+      },
+      "maxConcurrent": 8,
+      "subagents": {
+        "maxConcurrent": 6
       }
     }
   },
@@ -33,7 +37,13 @@
     }
   },
   "session": {
-    "dmScope": "per-channel-peer"
+    "dmScope": "per-channel-peer",
+    "resetByType": {
+      "thread": {
+        "mode": "idle",
+        "idleMinutes": 525600
+      }
+    }
   },
   "tools": {
     "profile": "full",
@@ -92,18 +102,29 @@
   },
   "meta": {
     "lastTouchedVersion": "2026.5.28",
-    "lastTouchedAt": "2026-06-26T14:15:55.232Z"
+    "lastTouchedAt": "2026-06-26T14:17:02.152Z"
   },
   "channels": {
     "telegram": {
       "enabled": true,
       "botToken": "${TELEGRAM_BOT_TOKEN}",
       "dmPolicy": "pairing",
-      "groupPolicy": "allowlist"
+      "groupPolicy": "allowlist",
+      "groups": {
+        "-1003611345513": {
+          "requireMention": false
+        }
+      },
+      "groupAllowFrom": [
+        "165989418"
+      ]
     }
   },
   "commands": {
-    "restart": true
+    "restart": true,
+    "ownerAllowFrom": [
+      "telegram:165989418"
+    ]
   },
   "hooks": {
     "internal": {
