@@ -3,10 +3,10 @@
     "defaults": {
       "workspace": "/root/.alphaclaw/.openclaw/workspace",
       "model": {
-        "primary": "anthropic/claude-opus-4-8"
+        "primary": "zai/glm-5.1"
       },
       "models": {
-        "anthropic/claude-opus-4-8": {}
+        "zai/glm-5.1": {}
       }
     }
   },
@@ -27,7 +27,8 @@
     ],
     "controlUi": {
       "allowedOrigins": [
-        "http://localhost:1234"
+        "http://localhost:1234",
+        "http://localhost:3000"
       ]
     }
   },
